@@ -26,7 +26,7 @@ jobs:
           # Deploy to VPS
           sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no $USER@$HOST "
             cd $PROJECT_DIR &&
-            git pull origin main &&
+            git pull origin master &&
             npm install &&
             pm2 restart formasi-api
           "
