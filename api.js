@@ -33,10 +33,8 @@ if (cluster.isMaster) {
   })
 } else {
   if (process.env.WORKER_TYPE === 'scheduler') {
-    // // This is the scheduler worker
     require('./scheduler')
   } else {
-    // This is an API worker
     const app = express()
 
     app.use(cors())

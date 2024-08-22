@@ -30,3 +30,13 @@ jobs:
             npm install &&
             pm2 restart formasi-api
           "
+      - name: Notify Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          # Install the required dependency
+          sudo apt-get update
+          sudo apt-get install -y curl
+
+          # Send a notification to Discord
+          curl -X POST -H "Content-Type: application/json" --data "{\"content\":\"Application has been deployed to the VPS\"}" "$DISCORD_WEBHOOK"
