@@ -33,6 +33,8 @@ jobs:
           sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no $USER@$HOST "
             cd $PROJECT_DIR &&
             git pull origin master &&
+            export NVM_DIR=~/.nvm &&
+            source ~/.nvm/nvm.sh &&
             npm install &&
             pm2 restart formasi-api
           "
