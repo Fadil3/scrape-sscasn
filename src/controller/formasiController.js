@@ -27,14 +27,12 @@ exports.getAllFormasi = async (req, res) => {
     } OFFSET $${queryParams.length + 2}`
     queryParams.push(limit, offset)
 
-    // Get total count of formasi
     const countResult = await db.query(
       countQuery,
       searchTerm ? [queryParams[0]] : []
     )
     const totalCount = parseInt(countResult.rows[0].count)
 
-    // Get paginated formasi data
     const { rows } = await db.query(dataQuery, queryParams)
 
     res.json({
