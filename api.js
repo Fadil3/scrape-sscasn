@@ -6,6 +6,7 @@ const rateLimiter = require('./src/utils/rateLimiter')
 const cluster = require('cluster')
 const numCPUs = require('os').cpus().length
 const compression = require('compression')
+const NodeCache = require('node-cache')
 
 const port = process.env.PORT || 3000
 

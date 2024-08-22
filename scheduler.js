@@ -1,6 +1,7 @@
 const db = require('./src/config/db')
 const cron = require('node-cron')
 const axios = require('axios')
+const { clearAllCache } = require('./src/middleware/cacheMiddleware')
 
 async function fetchAndUpdateData(offset = 0) {
   try {
@@ -82,6 +83,7 @@ async function fetchAndUpdateData(offset = 0) {
 
 cron.schedule('0 */3 * * *', () => {
   console.log('Running fetch job...')
+  clearAllCache()
   fetchAndUpdateData(0)
 })
 

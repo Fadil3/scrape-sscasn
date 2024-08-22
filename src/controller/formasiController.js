@@ -1,4 +1,5 @@
 const db = require('../config/db')
+const NodeCache = require('node-cache')
 
 exports.getAllFormasi = async (req, res) => {
   const page = parseInt(req.query.page) || 1
