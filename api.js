@@ -43,7 +43,7 @@ if (cluster.isMaster) {
     app.use(compression())
 
     app.get('/', (req, res) => {
-      res.json({ message: 'API server is running!' })
+      res.json({ message: 'API server is running! | SSCASN' })
     })
 
     app.use('/api/formasi', formasiRoutes)
